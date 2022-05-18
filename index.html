@@ -9,7 +9,7 @@
 		html,
 		body {
 			background: #000;
-			width: 50%;
+			width: auto;
 			height: auto;
 			overflow: visible;
 			padding: 20px;
@@ -87,8 +87,8 @@
 					h = 720;
 				}
 
-				container.style.width = canvas.style.width = w/2 + "px";
-				container.style.height = canvas.style.height = h/2 + "px";
+				container.style.width = canvas.style.width = w / 2 + "px";
+				container.style.height = canvas.style.height = h / 2 + "px";
 				container.style.top = Math.floor((window.innerHeight - h) / 2) + "px";
 				container.style.left = Math.floor((window.innerWidth - w) / 2) + "px";
 			}
@@ -100,28 +100,29 @@
 			window.addEventListener('resize', onResize);
 			onResize();
 		</script>
-	</div>
 
-	<div class="info">
-		<p>unity webgl responsive</p>
-		<p>press F or <a href="#" onclick="myGameInstance.SetFullscreen(1)">click here</a> to toggle fullscreen</p>
+		<div class="info" style="padding: 10px;">
+			<p>unity webgl responsive</p>
+			<p>press F or <a href="#" onclick="myGameInstance.SetFullscreen(1)">click here</a> to toggle fullscreen</p>
+		</div>
 	</div>
 
 	<!-- check for F key press to toggle full screen -->
 	<script>
 		var isFullscreen = false;
 		console.log(5 + 6);
-	
+
 		document.addEventListener('keydown', function (event) {
-		  if (event.which === 70) {
-			if (!isFullscreen) {
-			  myGameInstance.SetFullscreen(1);
-			} else {
-			  myGameInstance.SetFullscreen(0);
+			if (event.which === 70) {
+				if (!isFullscreen) {
+					myGameInstance.SetFullscreen(1);
+				} else {
+					myGameInstance.SetFullscreen(0);
+				}
+				isFullscreen = !isFullscreen;
 			}
-			isFullscreen = !isFullscreen;
-		  }
 		});
-	  </script>
+	</script>
 </body>
+
 </html>
