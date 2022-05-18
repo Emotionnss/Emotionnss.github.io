@@ -9,10 +9,10 @@
 		html,
 		body {
 			background: #000;
-			width: 70%;
-			height: auto;
+			width: auto;
+			height: 50%;
 			overflow: visible;
-			padding: 0;
+			padding: 20px;
 			margin: 0;
 		}
 
@@ -93,12 +93,33 @@
 			}
 			createUnityInstance(canvas, config, progressHandler).then(function (instance) {
 				canvas = instance.Module.canvas;
+				myGameInstance = instance;
 				onResize();
 			});
 			window.addEventListener('resize', onResize);
 			onResize();
 		</script>
 	</div>
-</body>
 
+	<div class="info">
+		<p>unity webgl responsive</p>
+		<p>press F or <a href="#" onclick="myGameInstance.SetFullscreen(1)">click here</a> to toggle fullscreen</p>
+	</div>
+
+	<!-- check for F key press to toggle full screen -->
+	<script>
+		var isFullscreen = false;
+	
+		document.addEventListener('keydown', function (event) {
+		  if (event.which === 70) {
+			if (!isFullscreen) {
+			  myGameInstance.SetFullscreen(1);
+			} else {
+			  myGameInstance.SetFullscreen(0);
+			}
+			isFullscreen = !isFullscreen;
+		  }
+		});
+	  </script>
+</body>
 </html>
